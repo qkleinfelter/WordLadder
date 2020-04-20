@@ -57,7 +57,11 @@ bool WordLadder::isWord(string str)
 
 bool WordLadder::isWordLadder(vector<string> sequence)
 {
-	return false;
+	for (vector<string>::iterator i = sequence.begin(); i != sequence.end(); i++)
+	{
+		if (getHammingDistance(*i, *i++) != 1) return false;
+	}
+	return true;
 }
 
 set<string> WordLadder::getNeighbors(string word)
