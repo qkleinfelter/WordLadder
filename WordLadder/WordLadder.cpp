@@ -11,14 +11,13 @@ WordLadder::WordLadder(string lexiconFileName, int len)
 	if (lexiconFile.fail())
 	{
 		cout << "Couldn't open lexicon file" << endl;
-		return;
+		exit(0);
 	}
-	while (!lexiconFile.eof())
+	string word;
+
+	while (lexiconFile >> word)
 	{
-		string word;
-		lexiconFile >> word;
-		if (word.length() != len) continue;
-		lexicon.insert(word);
+		if (word.length() == len) lexicon.insert(word);
 	}
 }
 
@@ -38,14 +37,8 @@ void WordLadder::displayResult(vector<string> sequence)
 
 int WordLadder::findInVector(vector<string> vec, string str)
 {
-	for (vector<string>::iterator i = vec.begin(); i != vec.end(); i++)
-	{
-		if (*i == str)
-		{
-			return i - vec.begin();
-		}
-	}
-	return -1;
+	vector<string>::iterator i = find(vec.begin(), vec.end(), str);
+	return i != vec.end() ? i - vec.begin() : -1;
 }
 
 bool WordLadder::isWord(string str)
@@ -57,21 +50,24 @@ bool WordLadder::isWord(string str)
 
 bool WordLadder::isWordLadder(vector<string> sequence)
 {
+	if (sequence.size() < 2) return false;
+
 	for (vector<string>::iterator i = sequence.begin(); i != sequence.end(); i++)
 	{
 		if (getHammingDistance(*i, *i++) != 1) return false;
 	}
+
 	return true;
 }
 
 set<string> WordLadder::getNeighbors(string word)
 {
 	set<string> neighbors;
-	for (set<string>::iterator i = lexicon.begin(); i != lexicon.end(); i++)
+	for (const string& dictionaryWord : lexicon)
 	{
-		if (getHammingDistance(word, *i) == 1)
+		if (getHammingDistance(word, dictionaryWord) == 1)
 		{
-			neighbors.insert(*i);
+			neighbors.insert(dictionaryWord);
 		}
 	}
 	return neighbors;
@@ -80,11 +76,14 @@ set<string> WordLadder::getNeighbors(string word)
 int WordLadder::getHammingDistance(string str1, string str2)
 {
 	if (str1.length() != str2.length()) return -1;
+
 	int hammingDistance = 0;
+	
 	for (int i = 0; i < str1.length(); i++)
 	{
 		if (str1[i] != str2[i])
 			hammingDistance++;
 	}
+
 	return hammingDistance;
 }

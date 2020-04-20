@@ -150,6 +150,9 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="WordLadder.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="WordLadder.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
