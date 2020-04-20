@@ -1,3 +1,13 @@
+/*
+	Author: Quinn Kleinfelter
+	Class: EECS 2510-001 Non Linear Data Structures Spring 2020
+	Instructor: Dr. Thomas
+	Last Edited: 4/20/20
+	Main File used to determine the shortest word ladder
+	from a user entered start word to a user entered 
+	end word, based on a user defined dictionary (lexicon).
+*/
+
 #include "WordLadder.h"
 #include <iostream>
 

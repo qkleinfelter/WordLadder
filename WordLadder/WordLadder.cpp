@@ -1,3 +1,18 @@
+/*
+	File: WordLadder.cpp - Word Ladder implementation
+	c.f.: WordLadder.h
+
+	This class implements the Word Ladder as
+	declared in WordLadder.h. A word ladder is defined in
+	the header comment located in that file.
+
+	Author: Quinn Kleinfelter
+	Class: EECS 2510-001 Non Linear Data Structures Spring 2020
+	Instructor: Dr. Thomas
+	Last Edited: 4/20/20
+	Copyright: Copyright 2020 by Quinn Kleinfelter. All rights reserved.
+*/
+
 #include "WordLadder.h"
 #include <fstream>
 #include <iostream>
