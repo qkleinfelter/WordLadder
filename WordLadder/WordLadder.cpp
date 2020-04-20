@@ -1,6 +1,7 @@
 #include "WordLadder.h"
 #include <fstream>
 #include <iostream>
+#include <list>
 
 using namespace std;
 
@@ -23,7 +24,55 @@ WordLadder::WordLadder(string lexiconFileName, int len)
 
 vector<string> WordLadder::getMinLadder(string start, string end)
 {
-	return vector<string>();
+	vector<string> ladder;
+	vector<string> wordsSeen;
+	vector<string> predecessors;
+	list<string> queue;
+
+	queue.push_back(start);
+	wordsSeen.push_back(start);
+	predecessors.push_back("");
+
+	while (!queue.empty())
+	{
+		string QFront = queue.front;
+		queue.pop_front();
+		
+		set<string> neighbors = getNeighbors(QFront);
+		for (const string& s : neighbors)
+		{
+			if (findInVector(wordsSeen, s) == -1)
+			{
+				if (s == end)
+				{
+					wordsSeen.push_back(s);
+					predecessors.push_back(QFront);
+
+					int sLoc = findInVector(wordsSeen, s);
+					string prevWord = predecessors[sLoc];
+					ladder.push_back(s);
+
+					while (prevWord != start)
+					{
+						ladder.insert(ladder.begin(), prevWord);
+						sLoc = findInVector(wordsSeen, prevWord);
+						prevWord = predecessors[sLoc];
+					}
+					ladder.insert(ladder.begin(), start);
+					return ladder;
+				}
+				else
+				{
+					wordsSeen.push_back(s);
+					predecessors.push_back(QFront);
+
+					queue.push_back(s);
+				}
+			}
+		}
+	}
+
+	return ladder;
 }
 
 int WordLadder::getWordCount()
