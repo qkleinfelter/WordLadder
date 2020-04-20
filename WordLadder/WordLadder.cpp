@@ -36,9 +36,16 @@ void WordLadder::displayResult(vector<string> sequence)
 {
 }
 
-int WordLadder::findInVector(vector<string> vec, string)
+int WordLadder::findInVector(vector<string> vec, string str)
 {
-	return 0;
+	for (vector<string>::iterator i = vec.begin(); i != vec.end(); i++)
+	{
+		if (*i == str)
+		{
+			return i - vec.begin();
+		}
+	}
+	return -1;
 }
 
 bool WordLadder::isWord(string str)
