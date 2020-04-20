@@ -88,14 +88,11 @@ void WordLadder::displayResult(vector<string> sequence)
 		return;
 	}
 	cout << "A Shortest Word Ladder (" << sequence.size() - 1 << " steps) is: ";
-	for (int i = 0; i < sequence.size(); i++)
+
+	for (vector<string>::iterator i = sequence.begin(); i != sequence.end(); i++)
 	{
-		cout << sequence[i];
-		
-		if (i != sequence.size() - 1)
-		{
-			cout << " ";
-		}
+		cout << *i;
+		if (i - sequence.begin() != sequence.size() - 1) cout << " ";
 	}
 	cout << endl;
 }

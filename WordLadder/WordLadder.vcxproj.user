@@ -4,4 +4,12 @@
     <LocalDebuggerCommandArguments>"C:\Users\Quinn\Desktop\Word Ladder Testing\OWL.txt" clash clown</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LocalDebuggerCommandArguments>"C:\Users\Quinn\Desktop\Word Ladder Testing\OWL.txt" clash clown</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LocalDebuggerCommandArguments>"C:\Users\Quinn\Desktop\Word Ladder Testing\OWL.txt" charge comedo</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>
