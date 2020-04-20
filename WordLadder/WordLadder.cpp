@@ -82,6 +82,22 @@ int WordLadder::getWordCount()
 
 void WordLadder::displayResult(vector<string> sequence)
 {
+	if (sequence.empty())
+	{
+		cout << "Word Ladder is empty - No Solution" << endl;
+		return;
+	}
+	cout << "A Shortest Word Ladder (" << sequence.size() - 1 << " steps) is: ";
+	for (int i = 0; i < sequence.size(); i++)
+	{
+		cout << sequence[i];
+		
+		if (i != sequence.size() - 1)
+		{
+			cout << " ";
+		}
+	}
+	cout << endl;
 }
 
 int WordLadder::findInVector(vector<string> vec, string str)
