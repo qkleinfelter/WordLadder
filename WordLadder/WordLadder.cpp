@@ -62,10 +62,25 @@ bool WordLadder::isWordLadder(vector<string> sequence)
 
 set<string> WordLadder::getNeighbors(string word)
 {
-	return set<string>();
+	set<string> neighbors;
+	for (set<string>::iterator i = lexicon.begin(); i != lexicon.end(); i++)
+	{
+		if (getHammingDistance(word, *i) == 1)
+		{
+			neighbors.insert(*i);
+		}
+	}
+	return neighbors;
 }
 
 int WordLadder::getHammingDistance(string str1, string str2)
 {
-	return 0;
+	if (str1.length() != str2.length()) return -1;
+	int hammingDistance = 0;
+	for (int i = 0; i < str1.length(); i++)
+	{
+		if (str1[i] != str2[i])
+			hammingDistance++;
+	}
+	return hammingDistance;
 }
