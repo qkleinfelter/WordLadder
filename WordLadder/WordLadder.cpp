@@ -28,7 +28,7 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 
 int WordLadder::getWordCount()
 {
-	return 0;
+	return lexicon.size();
 }
 
 void WordLadder::displayResult(vector<string> sequence)
