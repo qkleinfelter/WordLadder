@@ -35,7 +35,7 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 
 	while (!queue.empty())
 	{
-		string QFront = queue.front;
+		string QFront = queue.front();
 		queue.pop_front();
 		
 		set<string> neighbors = getNeighbors(QFront);
