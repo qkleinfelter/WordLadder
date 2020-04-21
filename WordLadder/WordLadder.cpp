@@ -137,7 +137,7 @@ bool WordLadder::isWordLadder(vector<string> sequence)
 
 	for (vector<string>::iterator i = sequence.begin(); i != sequence.end(); i++)
 	{
-		if (getHammingDistance(*i, *i++) != 1) return false;
+		if (getHammingDistance(*i, *(i+1)) != 1) return false;
 	}
 
 	return true;
