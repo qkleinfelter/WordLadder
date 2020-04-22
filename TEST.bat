@@ -1,3 +1,4 @@
+cd "C:\Users\Quinn\Desktop\Word Ladder Testing"
 ECHO Word Ladder Testing
 ECHO Invalid commands
 WordLadder
