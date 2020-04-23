@@ -217,8 +217,21 @@ int WordLadder::findInVector(vector<string> vec, string str)
 
 bool WordLadder::isWord(string str)
 {
+	// This method takes in a string, and determines
+	// if it is a word by checking if it is located in our dictionary
+
+	// First off, use the set's built in find function on the lexicon
+	// with the string we are looking for passed in, this returns
+	// an iterator of a set of strings
 	set<string>::iterator it = lexicon.find(str);
+
+	// If our iterator is located at lexicon.end()
+	// then we know we were unable to find our string
+	// so it must not be a word, thus return false
 	if (it == lexicon.end()) return false;
+
+	// Otherwise, it exists, and we don't care where it
+	// is located so return true
 	return true;
 }
 
