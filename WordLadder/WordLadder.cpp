@@ -22,17 +22,31 @@ using namespace std;
 
 WordLadder::WordLadder(string lexiconFileName, int len)
 {
-	ifstream lexiconFile;
-	lexiconFile.open(lexiconFileName);
+	// Constructor for our word ladder
+	// Takes in a file name where our lexicon resides
+	// And the length of words we are going to use
+	// with our word ladder
+
+	ifstream lexiconFile; // Input file stream variable to hold the lexicon
+	lexiconFile.open(lexiconFileName); // Open up the lexicon file as passed in
 	if (lexiconFile.fail())
 	{
+		// If we failed when opening the lexicon file
+		// for whatever reason, we can't do anything else
+		// so print out an error message and exit immediately
 		cout << "Couldn't open lexicon file" << endl;
 		exit(0);
 	}
-	string word;
+
+	string word; // String variable to hold words that we read in from the lexicon
 
 	while (lexiconFile >> word)
 	{
+		// Loop through every word in the lexicon file
+		// first placing them into our string variable
+		// then checking if their length is equal to that
+		// of the words we will be using in the ladder,
+		// if it is equivalent, insert them into our lexicon 
 		if (word.length() == len) lexicon.insert(word);
 	}
 }
