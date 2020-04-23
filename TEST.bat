@@ -26,5 +26,11 @@ WordLadder OWL.txt fool sage
 WordLadder SOWPODS.txt fool sage
 WordLadder OWL.txt atlases cabaret
 WordLadder SOWPODS.txt atlases cabaret
+WordLadder OWL.txt hate love
+WordLadder SOWPODS.txt hate love
+WordLadder OWL.txt lass male
+WordLadder SOWPODS.txt lass male
+WordLadder OWL.txt live dead
+WordLadder SOWPODS.txt live dead
 
 pause
