@@ -196,7 +196,22 @@ void WordLadder::displayResult(vector<string> sequence)
 
 int WordLadder::findInVector(vector<string> vec, string str)
 {
+	// This method takes in a vector of strings, and a string
+	// to search for within that vector, and returns
+	// the location that the string is at in the vector,
+	// or -1 if we are unable to find the string in it
+	
+	// Here we get an iterator of our vector by using the find 
+	// method between the beginning and end of our vector
+	// to look for the string
 	vector<string>::iterator i = find(vec.begin(), vec.end(), str);
+	
+	// Then, if the iterator is not located at the end
+	// of the vector, we can return the distance between
+	// i and the beginning of the vector (i - vec.begin())
+	// which is the index the string is located at
+	// Otherwise, return -1 because i is only located at vec.end()
+	// after using find if we were unable to find the string
 	return i != vec.end() ? i - vec.begin() : -1;
 }
 
