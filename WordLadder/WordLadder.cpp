@@ -152,19 +152,46 @@ int WordLadder::getWordCount()
 
 void WordLadder::displayResult(vector<string> sequence)
 {
+	// This method takes in a word ladder (sequence),
+	// held in a vector of strings, and displays the appropriate output 
+
 	if (sequence.empty())
 	{
+		// If we have an empty sequence then we need to let the
+		// user know that no word ladder exists with this dictionary
+		// between the two words, in this EXACT format
 		cout << "Word Ladder is empty - No Solution" << endl;
 		return;
 	}
+
+	if (!isWordLadder(sequence))
+	{
+		// Ensure that what is passed into displayResult is
+		// actually a word ladder
+		// Based on current usage of this program this should never run,
+		// but we keep it here just in case
+		cout << "Invalid word ladder passed to display result" << endl;
+		return;
+	}
+	// Output the beginning of the text as specified in the document
+	// Including the number of steps we took to get there, 
+	// which is always 1 less than the total size of the sequence
 	cout << "A Shortest Word Ladder (" << sequence.size() - 1 << " steps) is: ";
 
 	for (vector<string>::iterator i = sequence.begin(); i != sequence.end(); i++)
 	{
-		cout << *i;
+		// Loop through all of the items in the sequence
+		// starting off our iterator at sequence.begin(), 
+		// and increasing it by 1 each time until we get to sequence.end()
+
+		cout << *i; // First, simply output the dereferenced item located at our iterator's current location
+
+		// Here, i - sequence.begin() indicates how far into the sequence we are
+		// and sequence.size() - 1 is the location of the last item
+		// so, if we didn't just output the last item, follow it up with a space
 		if (i - sequence.begin() != sequence.size() - 1) cout << " ";
 	}
-	cout << endl;
+	cout << endl; // Finally, after we have looped through our whole sequence, print out an endl
 }
 
 int WordLadder::findInVector(vector<string> vec, string str)
@@ -184,7 +211,7 @@ bool WordLadder::isWordLadder(vector<string> sequence)
 {
 	if (sequence.size() < 2) return false;
 
-	for (vector<string>::iterator i = sequence.begin(); i != sequence.end(); i++)
+	for (vector<string>::iterator i = sequence.begin(); i != sequence.end() - 1; i++)
 	{
 		if (getHammingDistance(*i, *(i+1)) != 1) return false;
 	}
