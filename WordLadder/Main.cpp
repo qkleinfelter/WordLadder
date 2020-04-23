@@ -37,9 +37,10 @@ int main(int argc, char* argv[])
 		cout << "First and last word must be of the same length" << endl;
 		return 0;
 	}
-	WordLadder wordLadder(lexicon, firstWord.length()); // Initialize the ladder
-	toUpper(firstWord); // Convert the first word to uppercase
-	toUpper(lastWord); // Convert the last word to uppercase
-	vector<string> minLadder = wordLadder.getMinLadder(firstWord, lastWord); // Get the min ladder from the first word to the last word
-	wordLadder.displayResult(minLadder); // Display the correctly formatted result
+
+	WordLadder* wl = new WordLadder(lexicon, firstWord.length());
+	toUpper(firstWord);
+	toUpper(lastWord);
+	vector<string> minLadder = wl->getMinLadder(firstWord, lastWord); // Get the min ladder from the first word to the last word
+	wl->displayResult(minLadder); // Display the correctly formatted result
 }
