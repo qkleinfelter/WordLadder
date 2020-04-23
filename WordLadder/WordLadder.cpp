@@ -297,15 +297,30 @@ set<string> WordLadder::getNeighbors(string word)
 
 int WordLadder::getHammingDistance(string str1, string str2)
 {
+	// This method takes 2 strings, 
+	// and calculates their hamming distance
+	// See https://en.wikipedia.org/wiki/Hamming_distance for more
+
+	// If the length of the 2 strings isn't the same
+	// then they don't have a hamming distance so 
+	// return -1
 	if (str1.length() != str2.length()) return -1;
 
-	int hammingDistance = 0;
+	int hammingDistance = 0; // Int to keep track of our hamming distance
 	
 	for (int i = 0; i < str1.length(); i++)
 	{
+		// Loop through every character in the strings
+		// We could have used either strings length for 
+		// our looping condition since they are the same length,
+
+		// Check if the character at the current position
+		// is the same in both strings,
+		// if it isn't the same, increment the hamming distance
 		if (str1[i] != str2[i])
 			hammingDistance++;
 	}
 
+	// Once we've looped through the strings, return the hamming distance
 	return hammingDistance;
 }
