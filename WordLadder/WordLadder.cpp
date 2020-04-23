@@ -53,61 +53,90 @@ WordLadder::WordLadder(string lexiconFileName, int len)
 
 vector<string> WordLadder::getMinLadder(string start, string end)
 {
-	vector<string> ladder;
+	// This function takes in a starting and ending word
+	// both of which must be the same length as the length
+	// that was passed into the word ladder construction.
+	// Then, this method will ensure both words exist within
+	// the lexicon, and run a breadth-first search algorithm
+	// to find the shortest word ladder (each step having a 
+	// hamming distance of 1), from the start word to the end word
+	// eventually returning a vector<string> containing the finished ladder
+
+	vector<string> ladder; // Empty vector of strings to hold our ladder
 
 	if (!isWord(start) || !isWord(end))
 	{
+		// If either the start word, or the end word
+		// don't exist in our lexicon (i.e. they aren't words)
+		// then we can't make a word ladder, so simply
+		// return our empty ladder
 		return ladder;
 	}
 
-	vector<string> wordsSeen;
-	vector<string> predecessors;
-	list<string> queue;
+	vector<string> wordsSeen;		// Vector of strings to hold all the words we've seen
+	vector<string> predecessors;	// Vector of strings to hold the predecessors of each word we've seen
+	list<string> queue;				// List of strings to use as our queue for BFS
 
-	queue.push_back(start);
-	wordsSeen.push_back(start);
-	predecessors.push_back("");
+	queue.push_back(start);		// Our queue needs to start with just the starting word for the ladder
+	wordsSeen.push_back(start);	// And, we've seen the starting word so add it there as well
+	predecessors.push_back(""); // Since our starting word has no predecessor, put an empty string in that place in the predecessor vector
 
 	while (!queue.empty())
 	{
-		string QFront = queue.front();
-		queue.pop_front();
+		// Loop while we still have things inside our queue
+
+		string QFront = queue.front(); // Keep track of the front item of the queue
+		queue.pop_front();			   // and pop it off
 		
-		set<string> neighbors = getNeighbors(QFront);
+		set<string> neighbors = getNeighbors(QFront); // Get all of the neighbors of our first item in the queue
+
 		for (const string& s : neighbors)
 		{
+			// For each string s in neighbors, i.e. For each neighbor s
+
 			if (findInVector(wordsSeen, s) == -1)
 			{
+				// If we haven't seen s yet, check if it is the end word
+				// of the ladder
 				if (s == end)
 				{
-					wordsSeen.push_back(s);
-					predecessors.push_back(QFront);
+					// If s is the final word in the ladder,
+					wordsSeen.push_back(s);			// Push it onto the back of words seen
+					predecessors.push_back(QFront); // and push the front item from the queue into predecessors
 
-					int sLoc = findInVector(wordsSeen, s);
-					string prevWord = predecessors[sLoc];
-					ladder.push_back(s);
+					int index = findInVector(wordsSeen, s); // Figure out what index s occupies in words seen
+					string prevWord = predecessors[index];  // Get the previous word by accessing s's location in predecessors (always QFront here)
+					ladder.push_back(s);				   // and push s onto the back of our ladder vector
 
 					while (prevWord != start)
 					{
-						ladder.insert(ladder.begin(), prevWord);
-						sLoc = findInVector(wordsSeen, prevWord);
-						prevWord = predecessors[sLoc];
+						// While the previous word isn't our starting word
+						// we need to loop through going backwards through our lists
+
+						ladder.insert(ladder.begin(), prevWord);  // Put the previous word onto the start of our ladder (initially, our ladder will be prevWord -> s)
+						index = findInVector(wordsSeen, prevWord);// update our index variable to be the location of our previous word in words seen
+						prevWord = predecessors[index];			  // Then, find the predecessor of that word and make it the prevWord
 					}
-					ladder.insert(ladder.begin(), start);
-					return ladder;
+					// Finally, our ladder will contain everything following start up
+					// through the end, so we just need to insert the starting word
+					// at the beginning of the ladder
+					ladder.insert(ladder.begin(), start); 
+					return ladder; // and return our finished ladder
 				}
 				else
 				{
-					wordsSeen.push_back(s);
-					predecessors.push_back(QFront);
+					// Otherwise, if s wasn't our last word in the ladder
+					wordsSeen.push_back(s);			// Push s onto the end of words seen
+					predecessors.push_back(QFront); // and push QFront onto the end of predecessors
 
-					queue.push_back(s);
+					queue.push_back(s);				// then, add s to the back of the queue
 				}
 			}
 		}
 	}
-
-	return ladder;
+	// Return the (empty) ladder - only hit this if both words exist 
+	// in the dictionary, but we can't find a ladder between them
+	return ladder; 
 }
 
 int WordLadder::getWordCount()
