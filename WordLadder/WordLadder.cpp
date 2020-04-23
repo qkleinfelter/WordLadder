@@ -237,13 +237,29 @@ bool WordLadder::isWord(string str)
 
 bool WordLadder::isWordLadder(vector<string> sequence)
 {
+	// This method takes in a vector of strings (sequence)
+	// and determines if it constitutes a word ladder
+	// defined as successive words having a hamming distance of 1
+
+	// If we have less than 2 words in our sequence
+	// Then by definition we cannot have a word ladder TODO: Check on this?
 	if (sequence.size() < 2) return false;
 
 	for (vector<string>::iterator i = sequence.begin(); i != sequence.end() - 1; i++)
 	{
+		// Here we get an iterator, starting at the beginning of our sequence
+		// and we loop through until we reach the second to last item
+		// in the word ladder (located at sequence.end() -1)
+		
+		// Then for each word, we get the hamming distance between it (dereferenced iterator)
+		// and the next word in the list (dereferenced iterator + 1)
+		// Then, if our hamming distance is not exactly 1,
+		// we return false because we don't have a word ladder
 		if (getHammingDistance(*i, *(i+1)) != 1) return false;
 	}
 
+	// If we make it to this statement, we must have a word ladder
+	// so return true
 	return true;
 }
 
