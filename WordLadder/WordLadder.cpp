@@ -141,6 +141,12 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 
 int WordLadder::getWordCount()
 {
+	// This method simply returns the total number of words in the lexicon
+	// It is not used at all in the BFS implementation but was used
+	// in debugging
+
+	// All we need to do is leverage the vector's size method
+	// to return how many words we have in the lexicon
 	return lexicon.size();
 }
 
