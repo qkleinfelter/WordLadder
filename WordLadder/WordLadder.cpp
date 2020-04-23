@@ -269,14 +269,29 @@ bool WordLadder::isWordLadder(vector<string> sequence)
 
 set<string> WordLadder::getNeighbors(string word)
 {
-	set<string> neighbors;
+	// This method takes in a string
+	// and returns a set of strings which contains
+	// all of its neighbors in our lexicon
+	set<string> neighbors; // Empty set of strings to store the neighbors
+
+	// Check if the string exists in our dictionary before we bother looking for neighbors
+	// and if its not in the dictionary, return the empty set
+	if (!isWord(word)) return neighbors;
+
 	for (const string& dictionaryWord : lexicon)
 	{
+		// Loop through a reference to every string in our dictionary
+		// And check the hamming distance between our word
+		// and the dictionaryWord
+		// If the hamming distance is 1, then we consider the dictionary word a neighbor
+		// so add it to our set
 		if (getHammingDistance(word, dictionaryWord) == 1)
 		{
 			neighbors.insert(dictionaryWord);
 		}
 	}
+	// Once we've looped through the dictionary
+	// we can return our set of neighbors
 	return neighbors;
 }
 
