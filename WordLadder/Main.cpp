@@ -2,7 +2,8 @@
 	Author: Quinn Kleinfelter
 	Class: EECS 2510-001 Non Linear Data Structures Spring 2020
 	Instructor: Dr. Thomas
-	Last Edited: 4/20/20
+	Last Edited: 4/23/20
+
 	Main File used to determine the shortest word ladder
 	from a user entered start word to a user entered 
 	end word, based on a user defined dictionary (lexicon).
@@ -32,15 +33,18 @@ int main(int argc, char* argv[])
 	string lexicon = argv[1]; // File location to use as our lexicon
 	string firstWord = argv[2]; // Starting word for the ladder
 	string lastWord = argv[3]; // Ending word for the ladder
+
 	if (firstWord.length() != lastWord.length())
 	{
+		// We can only determine a word ladder if our two words
+		// have the same length
 		cout << "First and last word must be of the same length" << endl;
 		return 0;
 	}
 
-	WordLadder* wl = new WordLadder(lexicon, firstWord.length());
-	toUpper(firstWord);
-	toUpper(lastWord);
-	vector<string> minLadder = wl->getMinLadder(firstWord, lastWord); // Get the min ladder from the first word to the last word
+	WordLadder* wl = new WordLadder(lexicon, firstWord.length()); // Initialize our word ladder variable
+	toUpper(firstWord); // Convert the first word to upper case in place
+	toUpper(lastWord);  // Convert the last word to upper case in place
+	vector<string> minLadder = wl->getMinLadder(firstWord, lastWord); // Get the minimum word ladder from the first word to the last word
 	wl->displayResult(minLadder); // Display the correctly formatted result
 }
