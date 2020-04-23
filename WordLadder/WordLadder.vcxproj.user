@@ -9,7 +9,7 @@
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LocalDebuggerCommandArguments>"C:\Users\Quinn\Desktop\Word Ladder Testing\OWL.txt" charge comedo</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>"C:\Users\Quinn\Desktop\Word Ladder Testing\OWL.txt" charge zzzzzz</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
 </Project>

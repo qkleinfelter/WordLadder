@@ -64,12 +64,16 @@ vector<string> WordLadder::getMinLadder(string start, string end)
 
 	vector<string> ladder; // Empty vector of strings to hold our ladder
 
-	if (!isWord(start) || !isWord(end))
+	if (!isWord(start) || !isWord(end) || start == end)
 	{
 		// If either the start word, or the end word
 		// don't exist in our lexicon (i.e. they aren't words)
 		// then we can't make a word ladder, so simply
 		// return our empty ladder
+
+		// Similarly, if the start word is exactly the same
+		// as the end word, we don't need to bother doing any more
+		// work and can simply return an empty ladder
 		return ladder;
 	}
 

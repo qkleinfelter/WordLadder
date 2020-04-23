@@ -9,6 +9,7 @@ WordLadder NonExistent.txt fool sage
 ECHO Non-existent word ladders
 WordLadder OWL.txt zzzzz clash
 WordLadder OWL.txt clash zzzzz
+WordLadder OWL.txt clash clash
 
 ECHO Some working ladders
 WordLadder OWL.txt clash clown
