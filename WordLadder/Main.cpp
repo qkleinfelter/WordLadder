@@ -49,4 +49,6 @@ int main(int argc, char* argv[])
 	toUpper(lastWord);  // Convert the last word to upper case in place
 	vector<string> minLadder = wl->getMinLadder(firstWord, lastWord); // Get the minimum word ladder from the first word to the last word
 	wl->displayResult(minLadder); // Display the correctly formatted result
+
+	return 0;
 }
