@@ -1,3 +1,4 @@
+copy "C:\Users\Quinn\Documents\GitHub\WordLadder\x64\Release\WordLadder.exe" "C:\Users\Quinn\Desktop\Word Ladder Testing"
 cd "C:\Users\Quinn\Desktop\Word Ladder Testing"
 ECHO Word Ladder Testing
 ECHO Invalid commands
