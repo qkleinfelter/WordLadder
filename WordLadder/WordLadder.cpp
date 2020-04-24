@@ -190,10 +190,12 @@ void WordLadder::displayResult(vector<string> sequence)
 
 		cout << *i; // First, simply output the dereferenced item located at our iterator's current location
 
-		// Here, i - sequence.begin() indicates how far into the sequence we are
-		// and sequence.size() - 1 is the location of the last item
-		// so, if we didn't just output the last item, follow it up with a space
-		if (i - sequence.begin() != sequence.size() - 1) cout << " ";
+		// Here, we want to check if we just output the last item
+		// if our iterator is at sequence.end() - 1, we know that 
+		// we did just output the final item in the sequence.
+		// Anytime that we haven't just output the last item we
+		// want to print a space.
+		if (i != sequence.end() - 1) cout << " ";
 	}
 	cout << endl; // Finally, after we have looped through our whole sequence, print out an endl
 }
