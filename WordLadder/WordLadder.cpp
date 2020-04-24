@@ -246,7 +246,7 @@ bool WordLadder::isWordLadder(vector<string> sequence)
 	// defined as successive words having a hamming distance of 1
 
 	// If we have less than 2 words in our sequence
-	// Then by definition we cannot have a word ladder TODO: Check on this?
+	// Then by definition we cannot have a word ladder - from (https://en.wikipedia.org/wiki/Word_ladder)
 	if (sequence.size() < 2) return false;
 
 	for (vector<string>::iterator i = sequence.begin(); i != sequence.end() - 1; i++)
