@@ -9,7 +9,7 @@
 	Author: Quinn Kleinfelter
 	Class: EECS 2510-001 Non Linear Data Structures Spring 2020
 	Instructor: Dr. Thomas
-	Last Edited: 4/20/20
+	Last Edited: 4/24/20
 	Copyright: Copyright 2020 by Quinn Kleinfelter. All rights reserved.
 */
 
@@ -232,11 +232,11 @@ bool WordLadder::isWord(string str)
 	// If our iterator is located at lexicon.end()
 	// then we know we were unable to find our string
 	// so it must not be a word, thus return false
-	if (it == lexicon.end()) return false;
 
 	// Otherwise, it exists, and we don't care where it
 	// is located so return true
-	return true;
+
+	return !(it == lexicon.end());
 }
 
 bool WordLadder::isWordLadder(vector<string> sequence)
