@@ -1,37 +1,37 @@
 copy "C:\Users\Quinn\Documents\GitHub\WordLadder\x64\Release\WordLadder.exe" "C:\Users\Quinn\Desktop\Word Ladder Testing"
 cd "C:\Users\Quinn\Desktop\Word Ladder Testing"
-ECHO Word Ladder Testing > output.txt
-ECHO Invalid commands > output.txt
-WordLadder > output.txt
-WordLadder OWL.txt fool > output.txt
-WordLadder OWL.txt > output.txt
-WordLadder NonExistent.txt fool sage > output.txt
+ECHO Word Ladder Testing
+ECHO Invalid commands
+WordLadder
+WordLadder OWL.txt fool
+WordLadder OWL.txt
+WordLadder NonExistent.txt fool sage
 
-ECHO Non-existent word ladders > output.txt
-WordLadder OWL.txt zzzzz clash > output.txt
-WordLadder OWL.txt clash zzzzz > output.txt
-WordLadder OWL.txt clash clash > output.txt
+ECHO Non-existent word ladders
+WordLadder OWL.txt zzzzz clash
+WordLadder OWL.txt clash zzzzz
+WordLadder OWL.txt clash clash
 
-ECHO Some working ladders > output.txt
-WordLadder OWL.txt clash clown > output.txt
-WordLadder SOWPODS.txt clash clown > output.txt
-WordLadder OWL.txt warm cold > output.txt
-WordLadder SOWPODS.txt warm cold > output.txt
-WordLadder OWL.txt ape man > output.txt
-WordLadder SOWPODS.txt ape man > output.txt
-WordLadder OWL.txt charge comedo > output.txt
-WordLadder SOWPODS.txt charge comedo > output.txt
-WordLadder OWL.txt cat dog > output.txt
-WordLadder SOWPODS.txt cat dog > output.txt
-WordLadder OWL.txt fool sage > output.txt
-WordLadder SOWPODS.txt fool sage > output.txt
-WordLadder OWL.txt atlases cabaret > output.txt
-WordLadder SOWPODS.txt atlases cabaret > output.txt
-WordLadder OWL.txt hate love > output.txt
-WordLadder SOWPODS.txt hate love > output.txt
-WordLadder OWL.txt lass male > output.txt
-WordLadder SOWPODS.txt lass male > output.txt
-WordLadder OWL.txt live dead > output.txt
-WordLadder SOWPODS.txt live dead > output.txt
+ECHO Some working ladders
+WordLadder OWL.txt clash clown
+WordLadder SOWPODS.txt clash clown
+WordLadder OWL.txt warm cold
+WordLadder SOWPODS.txt warm cold
+WordLadder OWL.txt ape man
+WordLadder SOWPODS.txt ape man
+WordLadder OWL.txt charge comedo
+WordLadder SOWPODS.txt charge comedo
+WordLadder OWL.txt cat dog
+WordLadder SOWPODS.txt cat dog
+WordLadder OWL.txt fool sage
+WordLadder SOWPODS.txt fool sage
+WordLadder OWL.txt atlases cabaret
+WordLadder SOWPODS.txt atlases cabaret
+WordLadder OWL.txt hate love
+WordLadder SOWPODS.txt hate love
+WordLadder OWL.txt lass male
+WordLadder SOWPODS.txt lass male
+WordLadder OWL.txt live dead
+WordLadder SOWPODS.txt live dead
 
 pause
