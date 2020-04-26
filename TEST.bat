@@ -33,5 +33,3 @@ WordLadder OWL.txt lass male
 WordLadder SOWPODS.txt lass male
 WordLadder OWL.txt live dead
 WordLadder SOWPODS.txt live dead
-
-pause
